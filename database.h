@@ -18,7 +18,8 @@ struct Entry {
 };
 
 struct Database {
-  // ...
+  int length;
+  Entry* entries;
 };
 
 // 엔트리를 생성한다.
@@ -30,8 +31,14 @@ void init(Database &database);
 // 데이터베이스에 엔트리를 추가한다.
 void add(Database &database, Entry *entry);
 
+// 엔트리 정보를 출력한다.
+void printEntry(Entry *entry);
+
 // 데이터베이스에서 키에 해당하는 엔트리를 찾는다.
-Entry get(Database &database, std::string &key);
+Entry *get(Database &database, std::string &key);
+
+// 데이터베이스의 엔트리들을 모두 보여준다.
+void list(Database &database);
 
 // 데이터베이스에서 키에 해당하는 엔트리를 제거한다.
 void remove(Database &database, std::string &key);
